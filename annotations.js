@@ -1,6 +1,6 @@
 (() => {
   const RED = '#e3232c';
-  const reviews = [
+  const defaultReviews = [
     {
       id: 'A1', sheetNo: '1', group: '8/2・1920px', x: 1073, y: 564, refWidth: 1920,
       comment: '経営・人材革新センター',
@@ -74,6 +74,8 @@
       target: '一條先生', replacement: 'IMD教授　一條和生先生', kind: 'text'
     }
   ];
+  const pageConfig = window.REVIEW_MAP || {};
+  const reviews = pageConfig.reviews || defaultReviews;
 
   const css = document.createElement('style');
   css.textContent = `
@@ -117,11 +119,11 @@
   panel.innerHTML = `
     <div class="review-head">
       <p class="review-kicker">SPREADSHEET REVIEW MAP</p>
-      <h2 class="review-title">修正箇所 12件</h2>
-      <p class="review-summary">番号を押すと該当位置へ移動します。赤い下線は対象語を特定できた箇所、赤枠は写真への指摘です。</p>
+      <h2 class="review-title">${pageConfig.title || `修正箇所 ${reviews.length}件`}</h2>
+      <p class="review-summary">${pageConfig.summary || '番号を押すと該当位置へ移動します。赤い下線は対象語を特定できた箇所、赤枠は写真への指摘です。'}</p>
     </div>
     <div class="review-list"></div>
-    <div class="review-legend">A＝8/2の指摘、B＝8/3の追加指摘。B3のみ対象語を確定できず、座標からの推定表示です。</div>
+    <div class="review-legend">${pageConfig.legend || 'A＝8/2の指摘、B＝8/3の追加指摘。対象語を確定できないものは座標からの推定表示です。'}</div>
   `;
   document.body.appendChild(panel);
 
