@@ -1,0 +1,23 @@
+[data-hnav]>li{position:relative}
+.report-accordion{position:relative;font-family:'EB Garamond',serif}
+.report-accordion summary{display:flex;align-items:center;gap:7px;color:#fff;font-size:18px;letter-spacing:.1em;cursor:pointer;list-style:none;transition:color .3s;white-space:nowrap}
+.report-accordion summary::-webkit-details-marker{display:none}
+.report-accordion summary::after{content:'＋';font-family:sans-serif;font-size:12px;color:#c5a365;transition:transform .25s}
+.report-accordion[open] summary{color:#c5a365}
+.report-accordion[open] summary::after{transform:rotate(45deg)}
+.report-accordion__panel{position:absolute;top:calc(100% + 14px);left:50%;z-index:1100;width:220px;padding:8px;background:#111;border:1px solid rgba(197,163,101,.65);box-shadow:0 14px 34px rgba(0,0,0,.38);transform:translateX(-50%);display:flex;flex-direction:column;gap:0}
+.report-accordion:not([open]) .report-accordion__panel{display:none}
+[data-hnav] .report-accordion__panel a{display:block;padding:13px 14px;color:#fff;font-size:14px;letter-spacing:.08em;line-height:1.5;border-bottom:1px solid rgba(255,255,255,.1);white-space:nowrap}
+[data-hnav] .report-accordion__panel a:last-child{border-bottom:0}
+[data-hnav] .report-accordion__panel a:hover{color:#c5a365;background:rgba(197,163,101,.08)}
+[data-hnav] .report-accordion__panel a[aria-current="page"]{color:#c5a365}
+.article-review-page [data-hlogo]{left:20px!important;width:175px!important}
+.article-review-page [data-hnav]{gap:10px!important}
+.article-review-page [data-hnav]>li>a,.article-review-page .report-accordion summary{font-size:13px!important;letter-spacing:.05em!important}
+.report-accordion--drawer summary{justify-content:center;color:#222;font-size:18px}
+.report-accordion--drawer .report-accordion__panel{position:static;width:230px;margin-top:12px;padding:6px;transform:none;background:#f7f4ee;box-shadow:none}
+.report-accordion--drawer .report-accordion__panel a{display:block;padding:11px 14px;color:#222;font-size:15px;letter-spacing:.06em;text-align:center;border-bottom:1px solid rgba(197,163,101,.3)}
+.report-accordion--drawer .report-accordion__panel a:last-child{border-bottom:0}
+@media(max-width:1340px){.report-accordion summary{font-size:15px}}
+@media(max-width:1000px){.report-accordion summary{font-size:13px;letter-spacing:.05em}.report-accordion__panel{left:auto;right:0;transform:none}}
+@media(max-width:680px){.report-accordion summary{font-size:12.5px}.report-accordion__panel{left:0;right:auto;width:200px}.article-review-page [data-hlogo]{width:clamp(150px,44vw,220px)!important}.article-review-page [data-hnav]{gap:10px 16px!important}}
