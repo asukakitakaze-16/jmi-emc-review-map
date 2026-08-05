@@ -157,7 +157,7 @@
     .review-title { margin:0; font-size:19px; line-height:1.4; }
     .review-summary { margin:8px 0 0; color:#cfcfcf; font-size:12px; line-height:1.6; }
     .review-list { overflow:auto; padding:10px; display:flex; flex-direction:column; gap:8px; }
-    .review-mode { position:sticky; top:0; z-index:3; display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:2px 0 8px; background:#fff; }
+    .review-mode { position:sticky; top:0; z-index:3; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; padding:2px 0 8px; background:#fff; }
     .review-mode-button { min-height:42px; border:1px solid #d8d8d8; border-radius:9px; background:#fff; color:#333; font:700 14px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; cursor:pointer; }
     .review-mode-button:hover { border-color:${RED}; }
     .review-mode-button[aria-pressed="true"] { border-color:${RED}; background:${RED}; color:#fff; box-shadow:0 3px 10px rgba(227,35,44,.22); }
@@ -168,6 +168,18 @@
     .review-comment { margin:0; font-size:13px; font-weight:700; line-height:1.55; }
     .review-analysis { margin:6px 0 0; padding-top:6px; border-top:1px dashed #ddd; color:#666; font-size:11px; line-height:1.55; }
     .review-legend { padding:10px 18px 14px; border-top:1px solid #eee; color:#666; font-size:11px; line-height:1.55; }
+    body.review-confirm-view { padding-right:0 !important; padding-bottom:0 !important; }
+    .review-confirm-view .review-underlined { text-decoration:none !important; background:none !important; }
+    .review-confirm-view .review-image { outline:none !important; }
+    .review-confirm-view .review-pin { display:none !important; }
+    .review-confirm-view #review-toggle,
+    .review-confirm-view #review-panel { display:none !important; }
+    .review-confirm-view .review-panel { inset:12px 12px auto auto; width:min(440px,calc(100vw - 24px)); height:auto; max-height:none; border:0; border-radius:12px; box-shadow:0 8px 28px rgba(0,0,0,.18); background:rgba(255,255,255,.96); backdrop-filter:blur(10px); }
+    .review-confirm-view .review-head,
+    .review-confirm-view .review-card,
+    .review-confirm-view .review-legend { display:none !important; }
+    .review-confirm-view .review-list { overflow:visible; padding:10px; }
+    .review-confirm-view .review-mode { padding:0; background:transparent; }
     @media (max-width: 960px) {
       body { padding-right:0; padding-bottom:230px; }
       .review-panel { inset:auto 0 0 0; width:auto; height:220px; border-left:0; border-top:1px solid #ddd; }
@@ -200,6 +212,7 @@
   modeControls.innerHTML = `
     <button type="button" class="review-mode-button" data-mode="before" aria-pressed="true">修正前</button>
     <button type="button" class="review-mode-button" data-mode="after" aria-pressed="false">修正後</button>
+    <button type="button" class="review-mode-button" data-mode="confirm" aria-pressed="false">確認用</button>
   `;
   list.appendChild(modeControls);
 
@@ -309,9 +322,25 @@
       button.setAttribute('aria-pressed', String(button.dataset.mode === mode));
     });
     document.querySelectorAll('.review-underlined').forEach((span) => {
-      span.textContent = mode === 'after' ? span.dataset.replacement : span.dataset.original;
+      span.textContent = mode === 'before' ? span.dataset.original : span.dataset.replacement;
     });
+    document.body.classList.toggle('review-confirm-view', mode === 'confirm');
     requestAnimationFrame(() => placed.forEach(({ place }) => place()));
+  }
+
+  const cleanAfterView = new URLSearchParams(window.location.search).get('pdf') === 'after';
+  if (cleanAfterView) {
+    document.body.classList.add('review-clean-after');
+    setReviewMode('confirm');
+    const cleanStyle = document.createElement('style');
+    cleanStyle.textContent = `
+      body.review-clean-after { padding-right: 0 !important; padding-bottom: 0 !important; }
+      .review-clean-after .review-panel,
+      .review-clean-after .review-pin { display: none !important; }
+      .review-clean-after .review-underlined { text-decoration: none !important; background: none !important; }
+      .review-clean-after .review-image { outline: none !important; }
+    `;
+    document.head.appendChild(cleanStyle);
   }
 
   modeControls.querySelectorAll('.review-mode-button').forEach((button) => {
