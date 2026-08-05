@@ -349,6 +349,23 @@
     document.head.appendChild(cleanStyle);
   }
 
+  const cleanCaptureView = new URLSearchParams(window.location.search).get('capture') === 'clean';
+  if (cleanCaptureView) {
+    document.body.classList.add('review-capture-clean');
+    setReviewMode('confirm');
+    const captureStyle = document.createElement('style');
+    captureStyle.textContent = `
+      body.review-capture-clean { padding-right: 0 !important; padding-bottom: 0 !important; }
+      .review-capture-clean .review-panel,
+      .review-capture-clean .review-pin,
+      .review-capture-clean #review-toggle,
+      .review-capture-clean #review-panel { visibility: hidden !important; pointer-events: none !important; }
+      .review-capture-clean .review-underlined { text-decoration: none !important; background: none !important; }
+      .review-capture-clean .review-image { outline: none !important; }
+    `;
+    document.head.appendChild(captureStyle);
+  }
+
   modeControls.querySelectorAll('.review-mode-button').forEach((button) => {
     button.addEventListener('click', () => setReviewMode(button.dataset.mode));
   });
