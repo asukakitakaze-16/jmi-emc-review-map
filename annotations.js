@@ -72,6 +72,72 @@
       comment: 'IMD教授　一條和生先生',
       analysis: '講師名に所属・肩書を補う指示と判断。',
       target: '一條先生', replacement: 'IMD教授　一條和生先生', kind: 'text'
+    },
+    {
+      id: 'C1', sheetNo: '7', group: '8/4・1440px', x: 463, y: 13217, refWidth: 1440,
+      comment: '8か月 or 9回です',
+      analysis: '見出しの「9か月」が指摘対象。8か月／全9回のどちらに直すかはコメントだけでは確定できないため、語句を示して要確認。',
+      target: '9か月', replacement: '9か月', kind: 'text'
+    },
+    {
+      id: 'C2', sheetNo: '8', group: '8/4・1440px', x: 909, y: 13913, refWidth: 1440,
+      comment: '8か月です。',
+      analysis: '本文中の期間表記「9か月」を「8か月」へ修正する指示と判断。',
+      target: '9か月', replacement: '8か月', kind: 'text'
+    },
+    {
+      id: 'C3', sheetNo: '9', group: '8/4・1440px', x: 496, y: 13960, refWidth: 1440,
+      comment: 'EMC',
+      analysis: '同じ段落の「JMI EMC」を「EMC」へ簡略化する指示と判断。',
+      target: 'JMI EMC', replacement: 'EMC', kind: 'text'
+    },
+    {
+      id: 'C4', sheetNo: '10', group: '8/4・1440px', x: 627, y: 15118, refWidth: 1440,
+      comment: 'JMIエグゼクティブマネジメントコース',
+      analysis: 'FAQ見出しの略称「JMI EMC」を正式表記へ変更する指示と判断。',
+      target: 'JMI EMC', context: 'に関するFAQ', replacement: 'JMIエグゼクティブマネジメントコース', kind: 'text'
+    },
+    {
+      id: 'C5', sheetNo: '11', group: '8/4・1440px', x: 460, y: 15424, refWidth: 1440,
+      comment: '第1単位の3日間',
+      analysis: 'FAQの「開講3日間」を「第1単位の3日間」へ変更する指示と判断。',
+      target: '開講3日間', replacement: '第1単位の3日間', kind: 'text'
+    },
+    {
+      id: 'C6', sheetNo: '12', group: '8/4・1440px', x: 479, y: 16431, refWidth: 1440,
+      comment: 'JMI 第37期EMC',
+      analysis: 'まとめ冒頭の期・コース表記を指定順へ変更する指示と判断。',
+      target: 'JMI EMC第37期', replacement: 'JMI 第37期EMC', kind: 'text'
+    },
+    {
+      id: 'C7', sheetNo: '13', group: '8/4・1440px', x: 514, y: 16728, refWidth: 1440,
+      comment: '第37期EMC',
+      analysis: 'まとめ末尾の「JMI EMC第37期」を「第37期EMC」へ変更する指示と判断。',
+      target: 'JMI EMC第37期', replacement: '第37期EMC', kind: 'text'
+    },
+    {
+      id: 'C8', sheetNo: '14', group: '8/4・1440px', x: 573, y: 16726, refWidth: 1440,
+      comment: '8か月',
+      analysis: 'まとめ末尾の期間表記「9か月」を「8か月」へ修正する指示と判断。',
+      target: '9か月', replacement: '8か月', kind: 'text'
+    },
+    {
+      id: 'C9', sheetNo: '15', group: '8/4・1440px', x: 608, y: 16911, refWidth: 1440,
+      comment: 'JMI第37期エグゼクティブマネジメントコース',
+      analysis: '編集注記の取材対象にある略称を指定の正式表記へ変更する指示と判断。',
+      target: 'JMI EMC第37期', replacement: 'JMI第37期エグゼクティブマネジメントコース', kind: 'text'
+    },
+    {
+      id: 'C10', sheetNo: '16', group: '8/4・1440px', x: 960, y: 11481, refWidth: 1440,
+      comment: 'この後に石黒さんの講演の様子写真を入れられますか。',
+      analysis: '石黒氏の講演を説明する段落直後への写真追加依頼。追加する写真素材の指定が必要。',
+      kind: 'point'
+    },
+    {
+      id: 'C11', sheetNo: '17', group: '8/4・1440px', x: 999, y: 17533, refWidth: 1440,
+      comment: '8か月 or 9回です。',
+      analysis: 'ページ下部の「9ヶ月」が指摘対象。8ヶ月／全9回のどちらに直すかはコメントだけでは確定できないため、語句を示して要確認。',
+      target: '9ヶ月', replacement: '9ヶ月', kind: 'text'
     }
   ];
   const pageConfig = window.REVIEW_MAP || {};
@@ -123,7 +189,7 @@
       <p class="review-summary">${pageConfig.summary || '番号を押すと該当位置へ移動します。赤い下線は対象語を特定できた箇所、赤枠は写真への指摘です。'}</p>
     </div>
     <div class="review-list"></div>
-    <div class="review-legend">${pageConfig.legend || 'A＝8/2の指摘、B＝8/3の追加指摘。対象語を確定できないものは座標からの推定表示です。'}</div>
+    <div class="review-legend">${pageConfig.legend || 'A＝8/2、B＝8/3、C＝8/4の追加指摘。対象語を確定できないものは座標からの推定表示です。'}</div>
   `;
   document.body.appendChild(panel);
 
@@ -138,8 +204,7 @@
   list.appendChild(modeControls);
 
   function expectedY(item) {
-    const contentWidth = Math.max(320, window.innerWidth - (window.innerWidth > 960 ? 360 : 0));
-    return item.y * (item.refWidth / contentWidth);
+    return item.y;
   }
 
   function directTextCandidates(text) {
@@ -163,7 +228,7 @@
   }
 
   function underlineTarget(item) {
-    const candidates = directTextCandidates(item.target);
+    const candidates = directTextCandidates(item.target).filter((el) => !item.context || (el.textContent || '').includes(item.context));
     if (!candidates.length) return null;
     const targetY = expectedY(item);
     const chosen = candidates.sort((a, b) => Math.abs((a.getBoundingClientRect().top + scrollY) - targetY) - Math.abs((b.getBoundingClientRect().top + scrollY) - targetY))[0];
