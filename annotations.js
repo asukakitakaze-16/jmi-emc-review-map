@@ -8,6 +8,12 @@
       target: '経営人材・革新センター', replacement: '経営・人材革新センター', kind: 'text'
     },
     {
+      id: 'A1b', sheetNo: '1', group: '追加・2ページ目', x: 1030, y: 1994, refWidth: 1920,
+      comment: '経営・人材革新センター',
+      analysis: '2ページ目「実施主体」の「経営人材・革新センター」を同じ表記へ修正。',
+      target: '経営人材・革新センター', replacement: '経営・人材革新センター', kind: 'text'
+    },
+    {
       id: 'A2', sheetNo: '2', group: '8/2・1920px', x: 673, y: 1271, refWidth: 1920,
       comment: '（初出のためここだけ）JMI エグゼクティブ・マネジメントコース（JMI EMC）',
       analysis: '本文で最初に現れる略称へ正式名称を補う指示と判断。',
