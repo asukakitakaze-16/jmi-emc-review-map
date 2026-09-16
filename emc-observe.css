@@ -261,31 +261,23 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: min(700px, 82vw);
-  min-height: 64px;
-  padding: 15px 32px;
+  width: min(460px, 100%);
+  min-height: 74px;
+  padding: 16px 28px;
   border: 1px solid #c5a365;
   border-radius: 999px;
-  color: #171510;
+  color: #111;
   background: #d8c08c;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, .16);
-  font-size: clamp(14px, 1.6vw, 17px);
+  font-size: 17px;
   letter-spacing: .1em;
   text-align: center;
   transition: transform .25s ease, background .25s ease;
 }
 
 .emc-observe-cta-inline:hover {
-  color: #171510;
+  color: #111;
   background: #ead39f;
   transform: translateY(-2px);
-}
-
-.emc-observe-cta-inline::after {
-  content: "→";
-  margin-left: 18px;
-  font-family: "EB Garamond", serif;
-  font-size: 22px;
 }
 
 @media (max-width: 900px) {
@@ -300,5 +292,5 @@
   .emc-observe__facts { flex-direction: column; align-items: center; }
   .emc-observe__schedule-head { align-items: flex-start; flex-direction: column; }
   .emc-observe__benefit { padding: 28px 24px; }
-  .emc-observe-cta-inline { width: min(92vw, 520px); padding: 14px 22px; }
+  .emc-observe-cta-inline { width: 100%; padding: 14px 22px; }
 }
