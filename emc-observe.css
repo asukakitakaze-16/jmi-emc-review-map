@@ -38,6 +38,18 @@
 .emc-observe-cta-row--spacious { margin-top: 34px; }
 .emc-observe-cta-inline { display: inline-flex; align-items: center; justify-content: center; width: min(460px, 100%); min-height: 74px; padding: 16px 28px; border: 1px solid rgb(197, 163, 101); border-radius: 999px; color: rgb(17, 17, 17); background: rgb(216, 192, 140); font-size: 17px; letter-spacing: 0.1em; text-align: center; transition: transform 0.25s, background 0.25s; }
 .emc-observe-cta-inline:hover { color: rgb(17, 17, 17); background: rgb(234, 211, 159); transform: translateY(-2px); }
+.emc-observe-promo { position: relative; padding: 64px 24px; overflow: hidden; color: #fff; background: #151412; border-top: 1px solid rgba(197, 163, 101, .48); border-bottom: 1px solid rgba(197, 163, 101, .48); }
+.emc-observe-promo::after { content: ""; position: absolute; width: 420px; height: 420px; top: 50%; right: -140px; transform: translateY(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(197, 163, 101, .22), transparent 66%); pointer-events: none; }
+.emc-observe-promo__inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(340px, .65fr); align-items: center; gap: 64px; width: 100%; max-width: 1120px; margin: 0 auto; }
+.emc-observe-promo__eyebrow { margin: 0 0 12px; color: #d8c08c; font-family: "EB Garamond", serif; font-size: 13px; letter-spacing: .28em; }
+.emc-observe-promo__copy h2 { margin: 0; font-size: clamp(26px, 3.3vw, 43px); font-weight: 400; line-height: 1.55; letter-spacing: .1em; }
+.emc-observe-promo__copy > p:not(.emc-observe-promo__eyebrow) { max-width: 690px; margin: 20px 0 0; color: rgba(255, 255, 255, .78); font-size: 15px; line-height: 2; letter-spacing: .04em; }
+.emc-observe-promo__copy ul { display: flex; flex-wrap: wrap; gap: 9px; margin: 20px 0 0; padding: 0; list-style: none; }
+.emc-observe-promo__copy li { padding: 7px 14px; border: 1px solid rgba(216, 192, 140, .5); border-radius: 999px; color: #ead9b3; font-size: 12px; letter-spacing: .08em; }
+.emc-observe-promo__action { display: flex; flex-direction: column; align-items: center; padding-left: 44px; border-left: 1px solid rgba(197, 163, 101, .34); text-align: center; }
+.emc-observe-promo__action > p { margin: 0 0 16px; color: rgba(255, 255, 255, .74); font-size: 13px; letter-spacing: .08em; }
+.emc-observe-promo__detail { margin-top: 15px; color: #d8c08c; border-bottom: 1px solid rgba(216, 192, 140, .55); font-size: 12px; letter-spacing: .08em; }
+.emc-observe-promo__detail:hover { color: #f0dcae; }
 @media (max-width: 900px) {
   .emc-observe { padding: 82px 20px; }
   .emc-observe__benefits { grid-template-columns: 1fr; }
@@ -46,6 +58,8 @@
   .emc-observe__session-date { grid-row: 1 / 4; }
   .emc-observe__session-time { padding-left: 0px; border-left: 0px; }
   .emc-observe__session-title, .emc-observe__session-place { grid-column: 2; }
+  .emc-observe-promo__inner { grid-template-columns: 1fr; gap: 38px; }
+  .emc-observe-promo__action { align-items: flex-start; padding: 32px 0 0; border-top: 1px solid rgba(197, 163, 101, .34); border-left: 0; text-align: left; }
 }
 @media (max-width: 600px) {
   .emc-observe__facts { flex-direction: column; align-items: center; }
@@ -57,4 +71,7 @@
   .emc-observe__session { grid-template-columns: 74px 1fr; padding: 20px 18px; }
   .emc-observe__session-date strong { font-size: 40px; }
   .emc-observe-cta-inline { width: 100%; padding: 14px 22px; }
+  .emc-observe-promo { padding: 54px 20px; }
+  .emc-observe-promo__copy h2 { font-size: clamp(24px, 7vw, 32px); }
+  .emc-observe-promo__copy > p:not(.emc-observe-promo__eyebrow) { font-size: 14px; line-height: 1.9; }
 }
