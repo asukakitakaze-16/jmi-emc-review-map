@@ -43,6 +43,7 @@ a{color:#c5a365;text-decoration:none}a:hover{color:#d1b67e}
 [data-totop]{opacity:0;visibility:hidden}
 [data-totop][data-on="1"]{opacity:1;visibility:visible}
 [data-totop]:hover{transform:scale(1.1)}
+[data-event-cta]:hover{background-color:#d8bf86 !important;color:#111 !important;transform:translateY(-2px)}
 [data-burger]{display:none}
 [data-burger] i{position:absolute;left:0;width:100%;height:1px;background-color:#fff;transition:all .4s ease}
 [data-burger] i:nth-child(1){top:0}
@@ -137,6 +138,8 @@ a{color:#c5a365;text-decoration:none}a:hover{color:#d1b67e}
  [data-feat]{font-size:clamp(13px,3.5vw,16px) !important}
  [data-abtns]{flex-direction:column !important;align-items:center !important}
  [data-btn]{width:100% !important;max-width:340px !important;height:60px !important;font-size:15px !important}
+ [data-event-cta]{width:100% !important;max-width:340px !important;min-height:58px !important;padding:10px 18px !important;flex-direction:column !important;gap:2px !important;text-align:center !important}
+ [data-event-cta] strong{font-size:13px !important}
  [data-allist]{gap:80px !important}
  [data-alc]{display:grid !important;grid-template-columns:42% 1fr !important;grid-template-areas:"img profile" "quote quote" !important;gap:30px 20px !important;align-items:stretch !important}
  [data-alimg]{width:100% !important;grid-area:img !important}
@@ -230,8 +233,8 @@ a{color:#c5a365;text-decoration:none}a:hover{color:#d1b67e}
   </ul>
 </div>
 
-<section id="home" data-fv="1" data-screen-label="FV" style="height:calc(100svh - 77px);min-height:550px;background-image:url('lp-assets/image-02.webp');background-size:cover;background-position:center;color:#fff;display:flex;justify-content:center;align-items:center;overflow:hidden">
-  <div data-fvin="1" style="width:100%;max-width:1200px;height:100%;padding:clamp(20px,4vh,40px) 30px 60px;display:flex;flex-direction:column;justify-content:space-between">
+<section id="home" data-fv="1" data-screen-label="FV" style="min-height:calc(100svh - 77px);background-image:url('lp-assets/image-02.webp');background-size:cover;background-position:center;color:#fff;display:flex;justify-content:center;align-items:center">
+  <div data-fvin="1" style="width:100%;max-width:1200px;min-height:calc(100svh - 77px);padding:clamp(20px,4vh,40px) 30px 38px;display:flex;flex-direction:column;justify-content:space-between">
     <div data-fvtop="1" style="display:flex;justify-content:center;align-items:center;gap:clamp(20px,6vh,60px)">
       <div data-lead="1" style="font-size:min(clamp(16px,2vw,27px),3.5vh);line-height:2;letter-spacing:0.2em;animation:fvFadeInUp .8s cubic-bezier(.25,1,.5,1) forwards;opacity:0">
         <p style="margin:0">日本を牽引する<br>企業の経営層を育成してきた<br>実績ある次世代経営者研修</p>
@@ -266,6 +269,7 @@ a{color:#c5a365;text-decoration:none}a:hover{color:#d1b67e}
         <a href="https://jmi.jma.or.jp/download/index.html" target="_blank" data-btn="1" style="display:flex;justify-content:center;align-items:center;gap:15px;height:clamp(48px,7vh,64px);width:min(340px,40vw);color:#fff;border-radius:32px;font-size:min(15px,2vh);letter-spacing:0.1em;background-color:#7b684c;transition:opacity .3s" style-hover="opacity:0.8;color:#fff">EMC資料ダウンロード <img src="lp-assets/image-06.webp" alt="Download" style="width:1.25em;height:auto;margin-top:-0.1em"></a>
         <a href="https://pages.jma.or.jp/jmi_inquiry.html?_fsi=6VZrHgi1" target="_blank" data-btn="1" style="display:flex;justify-content:center;align-items:center;gap:15px;height:clamp(48px,7vh,64px);width:min(340px,40vw);color:#fff;border-radius:32px;font-size:min(15px,2vh);letter-spacing:0.1em;background-color:#bea36d;transition:opacity .3s" style-hover="opacity:0.8;color:#fff">プログラムについて問い合わせる <img src="lp-assets/image-07.webp" alt="Mail" style="width:1.25em;height:auto;margin-top:-0.1em"></a>
       </div>
+      <a href="https://asukakitakaze-16.github.io/emc-2026-preview/october.html" target="_blank" rel="noopener noreferrer" data-event-cta="1" style="width:min(700px,84vw);min-height:46px;padding:8px 24px;border:1px solid rgba(216,191,134,.9);border-radius:24px;background-color:rgba(9,9,9,.72);color:#ead6a7;display:flex;align-items:center;justify-content:center;gap:18px;letter-spacing:.08em;transition:background-color .25s,color .25s,transform .25s"><span style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.16em;white-space:nowrap">10.22 THU</span><strong style="font-size:min(14px,1.8vh);font-weight:400">一條和生氏「リーダーシップ論」無料講義オブザーブ</strong><span style="font-size:13px;white-space:nowrap">詳細を見る →</span></a>
     </div>
   </div>
 </section>
