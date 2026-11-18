@@ -37,6 +37,10 @@
 .series-nav a[aria-current="page"] { color: #111; background: #d8bd83; }
 .series-kicker { margin: 0 0 10px; color: #9d7d43; font: 400 15px/1.5 'EB Garamond', serif; letter-spacing: .24em; }
 .series-copy { font-size: clamp(24px, 3.3vw, 42px); line-height: 1.7; letter-spacing: .06em; }
+.observe-scope { margin: 0 0 64px; padding: clamp(28px, 5vw, 52px); color: #fff; background: #111; border: 1px solid #b89353; box-shadow: 0 18px 45px rgba(0,0,0,.12); }
+.observe-scope__label { margin: 0 0 16px; color: #d1ae6c; font: 400 14px/1.5 'EB Garamond', serif; letter-spacing: .24em; }
+.observe-scope h2 { margin: 0; color: #fff; font-size: clamp(23px, 3vw, 38px); line-height: 1.7; letter-spacing: .05em; }
+.observe-scope p:last-child { margin: 18px 0 0; color: rgba(255,255,255,.76); font-size: 15px; line-height: 1.9; }
 .series-program { display: grid; gap: 1px; margin: 30px 0 0; background: #d7c8a8; border: 1px solid #d7c8a8; }
 .series-program > div { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 24px 28px; background: #fff; }
 .series-program dt { color: #92723a; letter-spacing: .08em; }
